@@ -190,7 +190,6 @@ footer li {
 }
 
 
-
 .footer-nav {
   display:flex;
   flex-flow: row wrap;
@@ -208,6 +207,9 @@ footer li {
   list-style:none;
 }
 
+.hide {
+  display:none;
+}
 
 .policies-links {
   display: flex;

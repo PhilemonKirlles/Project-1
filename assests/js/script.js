@@ -7,6 +7,7 @@ document.querySelector('#search-form').addEventListener
     ('submit', getZipCode);
 var searchForm = document.getElementById('search-form');
 
+
 document.querySelector('#display-footer-btn').addEventListener('click', displayFooter);
 var footerDisplay = 0;
 function displayFooter() {
@@ -14,12 +15,14 @@ function displayFooter() {
     if (footerDisplay == 0) {
         footerNav.classList.remove("hide");
         footerDisplay = 1;
+        console.log("display footer")
     } else {
         footerNav.classList.add("hide");
         footerDisplay = 0;
+        console.log("hide footer")
     }
 
-    }
+  }
     
 
 function getZipCode(event){
@@ -268,10 +271,12 @@ function saveStoreArray(zip, cityName) {
     
     searchHistory.push({city: cityName, zipCode: zip});
     console.log(searchHistory);
-    localStorage.setItem("history", JSON.stringify(searchHistory));
+
     if (searchHistory.length > 4) {
         searchHistory.shift();
     }
+
+    localStorage.setItem("history", JSON.stringify(searchHistory));
 }
 
 
