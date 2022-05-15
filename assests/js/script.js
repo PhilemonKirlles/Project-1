@@ -106,7 +106,7 @@ function getZipCode(event){
             var waterTemp = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].waterTemp_F)}`
             }).join("");
-            document.querySelector("#water-temp").insertAdjacentText("afterbegin","Water Temperature: "  + waterTemp[1] + waterTemp[2] + "F");
+            document.querySelector("#water-temp").insertAdjacentText("afterbegin","Water Temperature: "  + waterTemp[1] + waterTemp[2] + " F");
             
             var waveHeight = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].swellHeight_ft)}`
@@ -128,7 +128,7 @@ function getZipCode(event){
             var visibility = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].visibilityMiles)}`
             }).join("");
-            document.querySelector("#visibility").insertAdjacentText("afterbegin","visibility: "  + visibility[1] + " miles");
+            document.querySelector("#visibility").insertAdjacentText("afterbegin","Visibility: "  + visibility[1] + " miles");
             
 
            
