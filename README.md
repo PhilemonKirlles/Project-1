@@ -1,7 +1,8 @@
 
 <!-- # project name -->
 
-![Project Image]()
+![image](https://user-images.githubusercontent.com/64660713/168496269-a5f59c83-ce29-4eb7-a966-f48eebe61dcb.png)
+
 
 ---
 
@@ -26,8 +27,6 @@ Providing tips on how to prepare for the weather condetions in your shore side a
 
 #### Technologies
 - Google Maps
-- ???
--???
 
 ## Built With
 * HTML5
@@ -48,11 +47,9 @@ N/A
 ---
 
 ## References
+Weatherbit API: https://www.weatherbit.io/
 API
-API
-???
-????
-???
+
 
 ---
 
@@ -60,23 +57,23 @@ API
 
 bootcamp class License
 
-Copyright (c) [2022] [???sunny side up team???]
+Copyright (c) [2022] [sunny side up team]
 
 ---
 
-## Author Info
+## Contribution Info
 -name- Eric Raymond
--email- [?????]
+-email- kselraymond@gmail.com
 -social media- [???]
 -portfolio- https://github.com/eraymond1
 
 -name- Lawrence Kocaj
--email- [?????]
+-email- lawrencecaj@gmail.com
 -social media- [???]
 -portfolio- https://github.com/LKocaj
 
 -name- Philemon AbdEllah Kirlles
--email- [?????]
+-email- philemon.kirlles@gmail.com
 -social media- [???]
 -portfolio- https://github.com/PhilemonKirlles
 
@@ -85,14 +82,9 @@ Copyright (c) [2022] [???sunny side up team???]
 -social media- https://www.linkedin.com/in/sarah-king-7952aa161/
 -portfolio- https://github.com/negativeH0ll0w
 ## Website
-https://philemonkirlles.github.io/???/
+https://philemonkirlles.github.io/SunnySide-Up/
 
 ---
 
-## Contribution
-Name (firstname,alphabetically)
-1-
-2-
-3-
-4-
+
 

@@ -190,7 +190,6 @@ footer li {
 }
 
 
-
 .footer-nav {
   display:flex;
   flex-flow: row wrap;
@@ -207,7 +206,13 @@ footer li {
   color: var(--color-1);
   list-style:none;
 }
+.nav-ul a:hover {
+  color: rgba(2, 132, 169, 1);
+}
 
+.hide {
+  display:none;
+}
 
 .policies-links {
   display: flex;

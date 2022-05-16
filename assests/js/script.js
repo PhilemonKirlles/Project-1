@@ -7,6 +7,7 @@ document.querySelector('#search-form').addEventListener
     ('submit', getZipCode);
 var searchForm = document.getElementById('search-form');
 
+
 document.querySelector('#display-footer-btn').addEventListener('click', displayFooter);
 var footerDisplay = 0;
 function displayFooter() {
@@ -14,12 +15,14 @@ function displayFooter() {
     if (footerDisplay == 0) {
         footerNav.classList.remove("hide");
         footerDisplay = 1;
+        console.log("display footer")
     } else {
         footerNav.classList.add("hide");
         footerDisplay = 0;
+        console.log("hide footer")
     }
 
-    }
+  }
     
 
 function getZipCode(event){
@@ -111,7 +114,7 @@ function getZipCode(event){
             var waterTemp = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].waterTemp_F)}`
             }).join("");
-            document.querySelector("#water-temp").insertAdjacentText("afterbegin","Water Temperature: "  + waterTemp[1] + waterTemp[2] + "F");
+            document.querySelector("#water-temp").insertAdjacentText("afterbegin","Water Temperature: "  + waterTemp[1] + waterTemp[2] + " F");
             
             var waveHeight = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].swellHeight_ft)}`
@@ -133,7 +136,7 @@ function getZipCode(event){
             var visibility = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].visibilityMiles)}`
             }).join("");
-            document.querySelector("#visibility").insertAdjacentText("afterbegin","visibility: "  + visibility[1] + " miles");
+            document.querySelector("#visibility").insertAdjacentText("afterbegin","Visibility: "  + visibility[1] + " miles");
             
 
            
@@ -276,10 +279,12 @@ function saveStoreArray(zip, cityName) {
     
     searchHistory.push({city: cityName, zipCode: zip});
     console.log(searchHistory);
-    localStorage.setItem("history", JSON.stringify(searchHistory));
+
     if (searchHistory.length > 4) {
         searchHistory.shift();
     }
+
+    localStorage.setItem("history", JSON.stringify(searchHistory));
 }
 
 
