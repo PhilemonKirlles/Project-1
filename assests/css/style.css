@@ -210,9 +210,9 @@ footer li {
   color: rgba(2, 132, 169, 1);
 }
 
-/* .hide {
+.hide {
   display:none;
-} */
+} 
 
 .policies-links {
   display: flex;
