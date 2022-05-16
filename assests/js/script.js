@@ -36,18 +36,18 @@ function getZipCode(event){
     document.querySelector('.input').value = "";
     console.log(zip);
 
-    if (isNaN(zip) || !((/^[0-9]{5}$/.test(zip)))){
-      var errorMsg = document.createElement('div');
-      errorMsg.classList.add("error");
-      errorMsg.innerText = "Please enter a 5 digit zip code!";
-      searchForm.appendChild(errorMsg);
-      zip = "";
-  } 
+  //   if (isNaN(zip) || !((/^[0-9]{5}$/.test(zip)))){
+  //     var errorMsg = document.createElement('div');
+  //     errorMsg.classList.add("error");
+  //     errorMsg.innerText = "Please enter a 5 digit zip code!";
+  //     searchForm.appendChild(errorMsg);
+  //     zip = "";
+  // } 
 
-    // if(zip){
-    //     zip = zip.replace(/\D/g, '');
-    //     console.log(zip);
-    // }
+    if(zip){
+        zip = zip.replace(/\D/g, '');
+        console.log(zip);
+    }
 
     
 
