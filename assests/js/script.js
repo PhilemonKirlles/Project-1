@@ -105,7 +105,7 @@ function getZipCode(event){
        })).join("");
 
        
-       fetch("http://api.worldweatheronline.com/premium/v1/marine.ashx?key=3722e23125dd4dfd919204849221305&format=JSON&&tide-yes&q=" + lat + "," + lon)
+       fetch("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=3722e23125dd4dfd919204849221305&format=JSON&&tide-yes&q=" + lat + "," + lon)
         .then(response => response.json())
         .then(data => {
 
