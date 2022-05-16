@@ -1,12 +1,13 @@
 
-
+//stores searches so it can be loaded on to page and localstorage
 var searchHistory = [];
 
-
+//event listener looks for submti to capture zip code info for api's
 document.querySelector('#search-form').addEventListener
     ('submit', getZipCode);
 var searchForm = document.getElementById('search-form');
 
+//displays footer upon click to see history and other information about site
 document.querySelector('#display-footer-btn').addEventListener('click', displayFooter);
 var footerDisplay = 0;
 function displayFooter() {
@@ -21,7 +22,7 @@ function displayFooter() {
 
     }
     
-
+//this function is the main function for fetch commands to pull weather and marine info
 function getZipCode(event){
 
     var lat;
@@ -33,6 +34,7 @@ function getZipCode(event){
     document.querySelector('.input').value = "";
     console.log(zip);
 
+    //pulls the numbers from string for zip
     if(zip){
         zip = zip.replace(/\D/g, '');
         console.log(zip);
@@ -40,12 +42,15 @@ function getZipCode(event){
 
     
 
-    //make request
+    //make request using fetch command
     fetch("https://api.weatherbit.io/v2.0/current?postal_code=" + zip + "&key=23f4eb9104a3417ebae0fd654b5b8faa")
     .then(response => response.json())
     .then(data => {
 
-        console.log(data);
+
+        //console.log(data);
+
+        //the collowing varibles below are created to cpature the api endpoints we needed to display on the page
         var airTemp = data.data.map(current => {
             return ` ${current.app_temp}`;
         }).join("");
@@ -83,6 +88,7 @@ function getZipCode(event){
 
        //console.log(cityName);
 
+       //the lon and lat were used to capture for the marine api as it does not work with zip code
        lon = data.data.map(current => {
            return `${current.lon}`;
        }).join("");
@@ -93,13 +99,14 @@ function getZipCode(event){
            return`${current.lat}`
        })).join("");
 
-       
+       //marine api used to fetch water information for other activiteis besides sitting on the beach, ex surfing, sailing, fishing
        fetch("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=3722e23125dd4dfd919204849221305&format=JSON&&tide-yes&q=" + lat + "," + lon)
         .then(response => response.json())
         .then(data => {
 
             console.log(data);
 
+            //these variables were used below to grab the endpoints needed for the marine API
             var waterTemp = data.data.weather.map(weather => {
                 return `${JSON.stringify(weather.hourly[0].waterTemp_F)}`
             }).join("");
@@ -137,7 +144,7 @@ function getZipCode(event){
     });
 
     
-
+    //this api is for capturing the alerts in the area that you are searching in case of severe weather
     fetch("https://api.weatherbit.io/v2.0/alerts?postal_code=" + zip + "&key=23f4eb9104a3417ebae0fd654b5b8faa")
     .then(response => {
         if(!response.ok) {
@@ -149,6 +156,7 @@ function getZipCode(event){
     .then(data => {
         console.log(data);
 
+        //this variable is for the alerts endpoint
         var weatherAlerts = data.alerts
         .map(alerts => {
             return `<p> ${alerts.description}</p>`;
@@ -158,7 +166,7 @@ function getZipCode(event){
         if(Object.keys(data.alerts).length) {
             document.querySelector(".alert-text").insertAdjacentHTML("afterbegin", "Current Alerts: " + weatherAlerts);
             
-        }else {
+        }else { //else statment displays message that no alerts were found that should be concerning
             weatherAlerts = "No weather worries today!";
             document.querySelector(".alert-text").insertAdjacentHTML("afterbegin", weatherAlerts);
             
@@ -188,7 +196,7 @@ function getZipCode(event){
      
 }; //end get zip code function
 // map////////////////////////
-
+//this function is for the map feature, that only works on localhost currently but not when deployed
 function initAutocomplete() {
     const map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: 41.3146671, lng: -70.6381596 },
@@ -274,7 +282,7 @@ function saveStoreArray(zip, cityName) {
     }
 }
 
-
+  //this function is used to load the history of searches on page for user. 
   function loadHistory() {
     var historyEl = document.getElementById('history-ul');
     var savedSearch = localStorage.getItem("history");
