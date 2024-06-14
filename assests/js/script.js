@@ -52,7 +52,7 @@ function getZipCode(event){
     
 
     //make request using fetch command
-    fetch("https://api.weatherbit.io/v2.0/current?postal_code=" + zip + "&key=23f4eb9104a3417ebae0fd654b5b8faa")
+    fetch("https://api.weatherbit.io/v2.0/current?postal_code=" + zip + "&key=b7e8dc3394ab4eb1893a34bec589cea1")
     .then(response => response.json())
     .then(data => {
 
@@ -106,7 +106,7 @@ function getZipCode(event){
        })).join("");
 
        //marine api used to fetch water information for other activiteis besides sitting on the beach, ex surfing, sailing, fishing
-       fetch("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=3722e23125dd4dfd919204849221305&format=JSON&&tide-yes&q=" + lat + "," + lon)
+       fetch("https://api.worldweatheronline.com/premium/v1/marine.ashx?key=ba158bbb822240ee9b1135808241406&format=JSON&&tide-yes&q=" + lat + "," + lon)
         .then(response => response.json())
         .then(data => {
 
